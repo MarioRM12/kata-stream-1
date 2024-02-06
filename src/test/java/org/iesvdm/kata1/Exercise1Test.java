@@ -20,6 +20,10 @@ public class Exercise1Test extends PetDomainForKata
         // Replace empty list firstNames with a stream transformation on people.
         List<String> firstNames = new ArrayList<>(); // this.people...
 
+            firstNames = this.people.stream()
+                    .map(person -> person.getFirstName())
+                    .toList();
+
         var expectedFirstNames = Arrays.asList("Mary", "Bob", "Ted", "Jake", "Barry", "Terry", "Harry", "John");
         Assertions.assertIterableEquals(expectedFirstNames, firstNames);
     }
@@ -36,6 +40,7 @@ public class Exercise1Test extends PetDomainForKata
             //TODO
             // Replace empty list name with a stream transformation on pets.
             names = new ArrayList<>() ;
+            names = pets.stream().map(Pet::getName).toList();
 
         }
 
